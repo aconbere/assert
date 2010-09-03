@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="../lib/assert.js"></script>
+    <script>
+      assert.ok(true, "ok");
+      assert.equal(1, 1, "equal");
+      assert.notEqual(1, 2, "notEqual");
+      console.log(assert._objEquiv({a: 1}, {a: 1}));
+      console.log(assert._objEquiv({a: 1, b: 1}, {a: 1, b:2}));
+      console.log(assert._objEquiv({a: 1, b: 2}, {a: 1, b:2}));
+      console.log(assert._objEquiv(
+        { '-': 
+           { root: 'something'
+           , url: 'http://example.com/?foo=bar'
+           }
+        , 'the section with whitespace': 
+           { 'this has whitespace': 'yep'
+           , 'just a flag, no value.': true
+           }
+        , section: 
+           { one: 'two'
+           , Foo: 'Bar'
+           , "this": 'Your Mother!'
+           , blank: ''
+           }
+        , 'Section Two': { 'something else': 'blah', remove: 'whitespace' }
+        },
+        { '-': 
+           { root: 'something'
+           , url: 'http://example.com/?foo=bar'
+           }
+        , 'the section with whitespace': 
+           { 'this has whitespace': 'yep'
+           , 'just a flag, no value.': true
+           }
+        , section: 
+           { one: 'two'
+           , Foo: 'Bar'
+           , "this": 'Your Mother!'
+           , blank: ''
+           }
+        , 'Section Two': { 'something else': 'blah', remove: 'whitespace' }
+        }));
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
